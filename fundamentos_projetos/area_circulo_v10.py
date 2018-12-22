@@ -10,8 +10,8 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("""
         E necessario informar o raio do circulo
-        Sintaxe: are_circulo <raio>
-        """)
+        Sintaxe: {} <raio>
+        """.format(sys.argv[0]))
     else:
         raio = sys.argv[1]
         area = circulo(raio)
