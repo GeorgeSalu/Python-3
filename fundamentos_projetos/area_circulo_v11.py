@@ -16,6 +16,7 @@ def circulo(raio):
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         help()
+        sys.exit(1)
     else:
         raio = sys.argv[1]
         area = circulo(raio)
