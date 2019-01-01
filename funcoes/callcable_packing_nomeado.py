@@ -14,5 +14,5 @@ if __name__ == '__main__':
     preco_bruto = 134.98
     preco_final = calc_preco_final(preco_bruto, imposto_x, importado=True)
     preco_final = calc_preco_final(preco_final, imposto_y,
-                                   explosivo=True, fator=1.5)
+                                   explosivo=True, fator_mult=1.5)
     print(f'Preço final R$ {preco_final}')
