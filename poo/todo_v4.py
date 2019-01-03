@@ -48,10 +48,22 @@ class Tarefa:
         return f'{self.descricao} '+' '.join(status)
 
 
+class TarefaRecorrente(Tarefa):
+    def __init__(self, descricao, vencimento, dias=7):
+        super().__init__(descricao, vencimento)
+        self.dias = dias
+
+    def concluir(self):
+        super().concluir()
+        novo_vencimento = datetime.now() + timedelta(days=self.dias)
+        return TarefaRecorrente(self.descricao, novo_vencimento)
+
+
 def main():
     casa = Projeto('Tarefa de casa')
     casa.add('Passar roupa')
     casa.add('Lavar prato', datetime.now() + timedelta(days=3, minutes=12))
+    casa.tarefas.append(TarefaRecorrente('Trocar lencois', datetime.now(), 7))
     print(casa)
 
     casa.procurar('Lavar prato').concluir()
