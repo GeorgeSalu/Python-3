@@ -1,9 +1,10 @@
 class HtmlToStringMixin:
     def __str__(self):
-        hml = super().__str__() \
+        # Conversão para HTML
+        html = super().__str__() \
             .replace('(', '<strong>(') \
             .replace(')', ')</strong>')
-        return f'<span>{hml}</span>'
+        return f'<span>{html}</span>'
 
 
 class Pessoa:
@@ -27,11 +28,16 @@ class PessoaHtml(HtmlToStringMixin, Pessoa):
     pass
 
 
-class AnimalHtml(HtmlToStringMixin, Pessoa):
+class AnimalHtml(HtmlToStringMixin, Animal):
     pass
 
 
 if __name__ == '__main__':
-    p1 = Pessoa('Maira eduarda')
-
+    p1 = Pessoa('Maria Eduarda')
     print(p1)
+
+    p2 = PessoaHtml('Roberto Carlos')
+    print(p2)
+
+    toto = AnimalHtml('Totó')
+    print(toto)
